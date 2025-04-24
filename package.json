@@ -1,0 +1,109 @@
+{
+  "name": "fargo-launcher",
+  "license": "your mom",
+  "displayName": "fargo-launcher",
+  "publisher": "TinyCado",
+  "description": "Dev terminal launcher",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:fargoLauncher.launch"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Fargo Launcher",
+      "properties": {
+        "fargoLauncher.splitTerminals": {
+          "type": "boolean",
+          "default": false,
+          "description": "If true, launch commands in split terminals."
+        },
+        "fargoLauncher.promptBeforeRunning": {
+          "type": "boolean",
+          "default": true,
+          "description": "Prompt before running commands when clicking Fargo icon."
+        },
+        "fargoLauncher.blankTerminalLocation": {
+          "type": "string",
+          "enum": [
+            "split",
+            "tab"
+          ],
+          "default": "tab",
+          "description": "Where to open the optional extra blank terminal: in a split or in a new tab."
+        },
+        "fargoLauncher.terminals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Terminal name"
+              },
+              "command": {
+                "type": "string",
+                "description": "Command to run"
+              },
+              "enabled": {
+                "type": "boolean",
+                "default": true,
+                "description": "Enable or disable terminal command"
+              }
+            }
+          },
+          "default": [
+            {
+              "name": "Laravel",
+              "command": "php artisan serve",
+              "enabled": true
+            },
+            {
+              "name": "Vite",
+              "command": "npm run dev",
+              "enabled": true
+            },
+            {
+              "name": "Mailpit",
+              "command": "mailpit",
+              "enabled": true
+            }
+          ],
+          "description": "Custom terminal commands to be added by the user."
+        },
+        "fargoLauncher.openBlankTerminal": {
+          "type": "boolean",
+          "default": false,
+          "description": "If true, open a blank terminal upon startup."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "1.96.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.28.0",
+    "@typescript-eslint/parser": "^8.28.0",
+    "eslint": "^9.23.0",
+    "typescript": "^5.8.2",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  }
+}
