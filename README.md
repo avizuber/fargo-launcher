@@ -36,4 +36,27 @@ Example `settings.json`:
 }
 ```
 
-Click the 🚀 Fargo icon in the status bar to launch your workflow!
+### Installation
+
+## 1. Install via VSIX file
+
+Download the .vsix file from the repository or build it yourself using vsce package.
+
+Open VSCode or Cursor (if you're using that).
+
+Run the following command in the command palette (Ctrl+Shift+P or Cmd+Shift+P):
+
+Extensions: Install from VSIX...
+Select the .vsix file you downloaded and install it.
+
+## 2. Install via VSCode Marketplace
+
+You can also search for Fargo Launcher directly in the VSCode marketplace and install it from there.
+
+## 3. Configuration
+
+To configure Fargo Launcher, open your VSCode settings (Cmd+, on macOS or Ctrl+, on Windows), and search for Fargo Launcher. You can add additional terminal commands, set up the terminal split view, and enable the "remember my preferences" option.
+
+## 4. Launching Terminals
+
+Click on the 🚀 Fargo icon in the status bar, or use the Fargo Launcher: Launch command from the command palette. You can select which commands to launch, or if you have the "remember my preferences" option enabled, it will launch the defaults without any prompts.
